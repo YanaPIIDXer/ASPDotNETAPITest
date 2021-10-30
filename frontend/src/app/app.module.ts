@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HealthCheckComponent } from './Views/health-check/health-check.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HealthCheckComponent
   ],
   imports: [
     BrowserModule,
