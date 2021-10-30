@@ -8,6 +8,8 @@ services:
             - ./backend/APIServer:/app
         environment:
             IS_DOCKER_CONTAINER: 1
+        depends_on:
+            - db
             
     db:
         image: mysql:5.7
