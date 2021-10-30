@@ -1,5 +1,7 @@
 FROM --platform=linux/x86_64 mcr.microsoft.com/dotnet/sdk:3.1-alpine
 
+RUN dotnet tool install --global dotnet-ef
+
 WORKDIR /app
 
 ADD ./APIServer/*.csproj /app
