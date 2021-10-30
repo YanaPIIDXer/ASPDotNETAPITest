@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:3.1-alpine
+FROM --platform=linux/x86_64 mcr.microsoft.com/dotnet/sdk:3.1-alpine
 
 WORKDIR /app
 
