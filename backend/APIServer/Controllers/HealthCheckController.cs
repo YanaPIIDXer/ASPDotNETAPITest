@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using APIServer.Responses;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,9 @@ namespace APIServer.Controllers
 	[ApiController]
 	public class HealthCheckController : ControllerBase
 	{
+		public IActionResult Index()
+		{
+			return new JsonResult(new HealthCheckResponse());
+		}
 	}
 }
