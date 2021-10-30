@@ -14,7 +14,7 @@ export class HealthCheckComponent {
     const res = await conn.get("/");
     var msg: string = "";
     if (res.status == 200) {
-      msg = res.json.Message;
+      msg = res.json.message;
     } else {
       msg = "Fuck.";
     }
