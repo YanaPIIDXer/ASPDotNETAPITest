@@ -1,6 +1,7 @@
 FROM --platform=linux/x86_64 mcr.microsoft.com/dotnet/sdk:3.1-alpine
 
 RUN dotnet tool install --global dotnet-ef
+ENV PATH="$PATH:/root/.dotnet/tools"
 
 WORKDIR /app
 
