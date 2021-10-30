@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import conn from '../../Modules/apiconnection/apiconnection.module';
 
 @Component({
   selector: 'app-health-check',
   templateUrl: './health-check.component.html',
   styleUrls: ['./health-check.component.css']
 })
-export class HealthCheckComponent implements OnInit {
+export class HealthCheckComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
+  async healthCheck(): Promise<void> {
+    const res = await conn.get("/");
+    var msg: string = "";
+    if (res.status == 200) {
+      msg = res.json.Message;
+    } else {
+      msg = "Fuck.";
+    }
+    alert(msg);
+    console.log(res);
   }
-
 }
