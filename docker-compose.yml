@@ -6,6 +6,8 @@ services:
             - 3000:3000
         volumes:
             - ./backend/APIServer:/app
+        environment:
+            IS_DOCKER_CONTAINER: 1
             
     db:
         image: mysql:5.7
