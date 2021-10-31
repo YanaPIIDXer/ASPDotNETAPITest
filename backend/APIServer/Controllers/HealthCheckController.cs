@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace APIServer.Controllers
 {
+	/// <summary>
+	/// ヘルスチェックコントローラ
+	/// </summary>
 	[Route("/")]
 	[ApiController]
 	public class HealthCheckController : ControllerBase
