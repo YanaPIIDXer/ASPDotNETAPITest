@@ -1,4 +1,6 @@
 ﻿using APIServer.Models;
+using APIServer.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +25,14 @@ namespace APIServer.Controllers
 		{
 			this.usermanager = userManager;
 			this.signInManager = signInManager;
+		}
+
+		[Authorize]
+		public IActionResult Index()
+		{
+			HealthCheckResponse response = new HealthCheckResponse();
+			response.Message = "Auth Health Check OK";
+			return new JsonResult(response);
 		}
 	}
 }
