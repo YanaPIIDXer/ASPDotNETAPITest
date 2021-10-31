@@ -18,9 +18,10 @@ export class RegisterComponent {
   }
 
   async register(): Promise<void> {
+    if (!confirm("登録しますか？")) { return; }
     var params = new URLSearchParams();
-    params.append("UserName", this.userName);
-    params.append("Password", this.password);
+    params.append("userName", this.userName);
+    params.append("password", this.password);
     const res = await conn.post("/auth/register", params);
     console.log(res);
     if (res.status != 200 || !res.json.result) {

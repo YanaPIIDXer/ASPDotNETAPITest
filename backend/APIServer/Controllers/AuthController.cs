@@ -30,13 +30,15 @@ namespace APIServer.Controllers
 
 		[Route("register")]
 		[HttpPost]
-		public async Task<IActionResult> Register(RegisterRequest request)
+		public async Task<IActionResult> Register([FromForm] RegisterRequest request)
         {
+			Console.WriteLine("UserName:" + request.UserName);
+			Console.WriteLine("Password:" + request.Password);
 			User user = new User();
 			user.UserName = request.UserName;
 			var registerResult = await userManager.CreateAsync(user, request.Password);
 			SimpleResultResponse response = new SimpleResultResponse(registerResult == IdentityResult.Success);
-			return new JsonResult(response);	
+			return new JsonResult(response);
         }
 
 		[Authorize]

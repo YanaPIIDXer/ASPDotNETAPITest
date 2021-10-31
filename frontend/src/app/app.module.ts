@@ -9,6 +9,7 @@ import { HealthCheckComponent } from './Views/health-check/health-check.componen
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { RegisterComponent } from './Views/register/register.component';
 import { LogInComponent } from './Views/log-in/log-in.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LogInComponent } from './Views/log-in/log-in.component';
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
