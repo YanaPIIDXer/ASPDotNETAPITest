@@ -29,6 +29,7 @@ namespace APIServer.Controllers
 		}
 
 		[Route("register")]
+		[HttpPost]
 		public async Task<IActionResult> Register(RegisterRequest request)
         {
 			User user = new User();
