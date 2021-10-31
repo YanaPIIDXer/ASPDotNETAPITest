@@ -6,6 +6,8 @@ services:
             - 3000:3000
         volumes:
             - ./backend/APIServer:/app
+            - /app/bin
+            - /app/obj
         environment:
             IS_DOCKER_CONTAINER: 1
         depends_on:
