@@ -67,6 +67,11 @@ namespace APIServer
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
+                options.Events.OnRedirectToLogin = (ctx) =>
+                {
+                    ctx.Response.StatusCode = 403;
+                    return Task.CompletedTask;
+                };
                 options.SlidingExpiration = true;
             });
         }
