@@ -1,4 +1,5 @@
 ﻿using APIServer.Models;
+using APIServer.Requests;
 using APIServer.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -18,14 +19,23 @@ namespace APIServer.Controllers
 	[ApiController]
 	public class AuthController : ControllerBase
 	{
-		private UserManager<User> usermanager = null;
+		private UserManager<User> userManager = null;
 		private SignInManager<User> signInManager = null;
 
 		public AuthController(UserManager<User> userManager, SignInManager<User> signInManager)
 		{
-			this.usermanager = userManager;
+			this.userManager = userManager;
 			this.signInManager = signInManager;
 		}
+
+		public async Task<IActionResult> Register(RegisterRequest request)
+        {
+			User user = new User();
+			user.UserName = request.UserName;
+			var registerResult = await userManager.CreateAsync(user, request.Password);
+			SimpleResultResponse response = new SimpleResultResponse(registerResult == IdentityResult.Success);
+			return new JsonResult(response);	
+        }
 
 		[Authorize]
 		public IActionResult Index()
