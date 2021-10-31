@@ -1,1 +1,7 @@
-<p>log-in works!</p>
+<form (ngSubmit)="login()">
+    <label class="form-label">ユーザ名</label>
+    <input type="text" name="userName" class="form-control" [(ngModel)]="userName" />
+    <label class="form-label">パスワード</label>
+    <input type="password" name="password" class="form-control" [(ngModel)]="password" />
+    <input type="submit" class="form-control btn btn-primary" value="登録" />
+</form>

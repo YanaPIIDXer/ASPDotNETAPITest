@@ -39,6 +39,15 @@ namespace APIServer.Controllers
             return new JsonResult(response);
         }
 
+        [Route("login")]
+        [HttpPost]
+        public async Task<IActionResult> LogIn([FromForm] LogInRequest request)
+		{
+            User user = await userManager.FindByNameAsync(request.UserName);
+            var signInResult = await signInManager.CheckPasswordSignInAsync(user, request.Password, false);
+            return new JsonResult(new SimpleResultResponse(signInResult == Microsoft.AspNetCore.Identity.SignInResult.Success));
+		}
+
         [Authorize]
         public IActionResult Index()
         {
