@@ -28,6 +28,7 @@ namespace APIServer.Controllers
 			this.signInManager = signInManager;
 		}
 
+		[Route("register")]
 		public async Task<IActionResult> Register(RegisterRequest request)
         {
 			User user = new User();
