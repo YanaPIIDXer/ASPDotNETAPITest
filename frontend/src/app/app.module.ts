@@ -7,12 +7,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { HealthCheckComponent } from './Views/health-check/health-check.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { RegisterComponent } from './Views/register/register.component';
+import { LogInComponent } from './Views/log-in/log-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HealthCheckComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    RegisterComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule,
