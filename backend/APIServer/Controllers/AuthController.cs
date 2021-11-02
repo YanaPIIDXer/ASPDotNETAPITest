@@ -54,5 +54,13 @@ namespace APIServer.Controllers
             response.Message = "Auth Health Check OK";
             return new JsonResult(response);
         }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin()
+		{
+            HealthCheckResponse response = new HealthCheckResponse();
+            response.Message = "Admin Auth Health Check OK";
+            return new JsonResult(response);
+        }
     }
 }
