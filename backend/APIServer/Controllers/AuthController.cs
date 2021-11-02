@@ -55,6 +55,7 @@ namespace APIServer.Controllers
             return new JsonResult(response);
         }
 
+        [Route("admin")]
         [Authorize(Roles = "Admin")]
         public IActionResult Admin()
 		{

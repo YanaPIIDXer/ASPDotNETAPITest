@@ -33,4 +33,16 @@ export class HealthCheckComponent {
     alert(msg);
     console.log(res); 
   }
+
+  async healthCheckWithAdminAuth(): Promise<void> {
+    const res = await conn.get("/auth/admin");
+    var msg: string = "";
+    if (res.status == 200) {
+      msg = res.json.message;
+    } else {
+      msg = "Fuck.";
+    }
+    alert(msg);
+    console.log(res); 
+  }
 }
